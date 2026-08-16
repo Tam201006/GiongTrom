@@ -80,3 +80,23 @@ main {
         }
     }
 }
+
+@media (max-width: 780px) {
+    main{
+        .content{
+            section{
+                flex-direction: column;
+                align-items: center;
+                .title{
+                    width: 90%;
+                }
+                .content{
+                    width: 90%;
+                }
+            }
+        }
+        nav{
+            flex-direction: column;
+        }
+    }
+}
