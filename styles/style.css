@@ -185,6 +185,9 @@ footer {
 
 @media (max-width: 780px) {
     header {
+        .title-block{
+            flex-direction: column;
+        }
         &>button {
             display: flex;
             margin: 10px;
