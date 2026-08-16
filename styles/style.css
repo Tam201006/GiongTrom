@@ -188,6 +188,9 @@ footer {
         z-index: 100;
         .title-block{
             flex-direction: column;
+            .title{
+                font-size: 14px;
+            }
         }
         &>button {
             display: flex;
