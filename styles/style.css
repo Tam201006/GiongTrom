@@ -238,7 +238,7 @@ footer {
         .copyright{
             width: 100%;
             .title{
-                font-size: 12px;
+                font-size: 10px;
                 display: flex;
                 flex-direction: column;
                 font-style: italic;
