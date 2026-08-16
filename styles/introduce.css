@@ -83,20 +83,39 @@ main {
 
 @media (max-width: 780px) {
     main{
+        .title{
+            font-size: 14px;
+            text-align: center;
+        }
         .content{
             section{
                 flex-direction: column;
                 align-items: center;
                 .title{
                     width: 90%;
+                    font-size: 14px;
                 }
                 .content{
                     width: 90%;
+                    font-size: 12px;
                 }
             }
         }
         nav{
             flex-direction: column;
+            .card{
+                img{
+                    display: none;
+                }
+                .title{
+                    font-size: 14px;
+                }
+                .content{
+                    .description{
+                        font-size: 12px;
+                    }
+                }
+            }
         }
     }
 }
