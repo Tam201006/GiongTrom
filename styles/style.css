@@ -59,6 +59,7 @@ a {
 }
 
 header {
+    z-index: 100;
     button{
         display: none;
     }

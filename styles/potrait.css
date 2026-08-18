@@ -1,34 +1,268 @@
-main{
+main {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    
-    section{
-        width: 80%;
+
+    section {
         display: flex;
         flex-direction: column;
         align-items: center;
-        .title{
-            width: 80%;
-            font-size: 24px;
-            text-align: center;
-            border-bottom: 2px solid var(--blue-primary);
-            padding: 10px;
-        }
-        .content{
-            font-size: 16px;
-            p{
-                margin: 10px;
-                font-family: 'Playfair';
-                font-size: 16px;
+        margin: 10px;
+
+        .banner {
+            img {
+                width: 100%;
             }
+        }
+
+        /* Khung chứa đoạn mô tả tổng quan */
+        .descript {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 24px 28px;
+            background-color: #fcf8f2;
+            /* Tông màu kem ấm áp, trang trọng */
+            border: 1px solid #e8dec8;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Kiểu dáng các đoạn văn bên trong */
+        .descript p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: white;
+            margin-bottom: 16px;
+            text-align: justify;
+            /* Căn đều 2 bên cho chỉn chu */
+            position: relative;
+            padding-left: 20px;
+            /* Tạo khoảng trống cho dấu đầu dòng custom */
+        }
+
+        /* Bỏ khoảng cách của đoạn cuối cùng */
+        .descript p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tùy chỉnh dấu gạch đầu dòng cho đẹp hơn (Nếu dùng CSS này, bạn có thể bỏ dấu "-" thủ công trong HTML) */
+        .descript p::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #b71c1c;
+            /* Dấu chấm màu đỏ nổi bật */
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .content-container {
+            width: 80%;
+
+            .descript {
+                padding: 10px;
+                background: var(--blue-primary);
+                color: white;
+                border-radius: 10px;
+
+                p {
+                    font-size: 16px;
+                }
+            }
+
+            .work {
+                max-width: 1000px;
+                margin: 35px auto;
+                padding: 25px;
+                background-color: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+                border: 1px solid #e0e0e0;
+            }
+
+            /* Tiêu đề tác phẩm */
+            .work .title {
+                font-size: 20px;
+                font-weight: 700;
+                color: #b71c1c;
+                /* Màu đỏ đô truyền thống */
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #f0f0f0;
+            }
+
+            /* Layout chứa Nội dung (Trái) & Ảnh (Phải) */
+            .work .container {
+                display: flex;
+                align-items: flex-start;
+                gap: 25px;
+                /* Khoảng cách giữa cột chữ và ảnh */
+            }
+
+            /* Cột thông tin chữ (chiếm phần lớn không gian) */
+            .work .content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            /* Mô tả ngắn đầu tác phẩm */
+            .work .descript {
+                font-size: 15px;
+                font-style: italic;
+                color: #555;
+                line-height: 1.6;
+                background-color: #f9f9f9;
+                padding: 12px 15px;
+                border-left: 3px solid #b71c1c;
+                border-radius: 0 6px 6px 0;
+            }
+
+            /* Các nhãn tiêu đề nhỏ: "Nội dung chính:", "Giá trị:" */
+            .work .emphasize {
+                font-weight: 700;
+                color: #222;
+                margin-bottom: 5px;
+                font-size: 15px;
+            }
+
+            /* Đoạn văn chi tiết */
+            .work .paragraph {
+                font-size: 15px;
+                color: #333;
+                line-height: 1.7;
+                margin: 0;
+                text-align: justify;
+            }
+
+            /* Hình ảnh tác phẩm */
+            .work .container img {
+                width: 260px;
+                /* Chiều rộng cố định cho ảnh */
+                height: 360px;
+                /* Chiều cao cố định tương ứng bìa sách */
+                object-fit: cover;
+                /* Giữ tỉ lệ ảnh không bị móp méo */
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                flex-shrink: 0;
+                /* Không bị co lại khi màn hình nhỏ */
+            }
+        }
+
+        .exp {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #b71c1c;
+            /* Đường viền đỏ điểm nhấn phong cách lịch sử/truyền thống */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .exp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .exp .title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #b71c1c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+        }
+
+        /* Trang trí một gạch nhỏ đỏ dưới tiêu đề */
+        .exp .title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #b71c1c;
+        }
+
+        /* Phần nội dung văn bản */
+        .exp .content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333333;
+        }
+
+        /* Định dạng từng đoạn văn p */
+        .exp .content p {
+            margin-bottom: 16px;
+            text-align: justify;
+            /* Căn đều hai bên giúp văn bản gọn gàng */
+        }
+
+        /* Đoạn văn cuối cùng bỏ khoảng trống dưới */
+        .exp .content p:last-child {
+            margin-bottom: 0;
         }
     }
 }
-@media (max-width: 1200px) {
-    main{
-        section{
-            width: 95%;
+
+@media (max-width: 780px) {
+    main {
+        section {
+            .descript {
+                margin: 15px;
+                padding: 18px 20px;
+            }
+
+            .descript p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            .content-container {
+                width: 95%;
+
+                .work .container {
+                    flex-direction: column-reverse;
+                    /* Đưa ảnh lên trên hoặc xuống dưới tùy chọn */
+                    align-items: center;
+                }
+
+                .work .container img {
+                    width: 100%;
+                    max-width: 300px;
+                    height: auto;
+                    margin-bottom: 15px;
+                }
+
+                .work .title {
+                    font-size: 18px;
+                    text-align: center;
+                }
+            }
+
+            .exp {
+                margin: 20px 15px;
+                padding: 20px;
+            }
+
+            .exp .title {
+                font-size: 18px;
+                margin-bottom: 15px;
+            }
+
+            .exp .content {
+                font-size: 15px;
+                line-height: 1.7;
+            }
         }
     }
 }
