@@ -37,42 +37,63 @@ const work = [
   }
 ];
 
+const study = [
+  {
+    title: "“Đâu cần thanh niên có, việc gì khó có thanh niên”",
+    paragraph1: "Đây là một trong những lời dạy quen thuộc của Chủ tịch Hồ Chí Minh đối với thế hệ trẻ. Người nhấn mạnh tinh thần xung kích, trách nhiệm và sự sẵn sàng của thanh niên trước những nhiệm vụ của đất nước.",
+    paragraph2: "Thanh niên không chỉ là lực lượng trẻ về tuổi đời mà còn cần có tinh thần dấn thân, không ngại khó khăn, sẵn sàng đảm nhận những công việc cần sức trẻ và sự nhiệt huyết.",
+    paragraph3: "Lời dạy ấy đến nay vẫn được các tổ chức Đoàn và đoàn viên, thanh niên vận dụng trong nhiều hoạt động tình nguyện, lao động, học tập và tham gia phát triển cộng đồng.",
+    nowStudy: "Tuổi trẻ không chờ việc dễ mới làm. Khi cộng đồng cần, khi đất nước cần, thanh niên cần phát huy tinh thần trách nhiệm, chủ động nhận việc và cố gắng hoàn thành tốt nhiệm vụ được giao."
+  },
+  {
+    title: "“Thanh niên phải là rường cột của nước nhà”",
+    paragraph1: "Chủ tịch Hồ Chí Minh nhiều lần khẳng định vai trò quan trọng của thanh niên đối với tương lai dân tộc. Người căn dặn thanh niên phải không ngừng học tập, rèn luyện và chuẩn bị cho mình những phẩm chất, năng lực cần thiết để đảm nhận trách nhiệm đối với đất nước.",
+    paragraph2: "“Rường cột” không chỉ thể hiện vị trí quan trọng của thanh niên mà còn đặt ra yêu cầu về trách nhiệm. Muốn trở thành lực lượng kế tục sự nghiệp của cha anh, thanh niên phải có lý tưởng, có tri thức, có đạo đức và có tinh thần cống hiến.",
+    paragraph3: "",
+    nowStudy: "Mỗi đoàn viên, thanh niên cần chủ động học tập, rèn luyện chuyên môn, xây dựng lối sống lành mạnh và nuôi dưỡng khát vọng đóng góp cho quê hương, đất nước."
+  },
+  {
+    title: "“Học ở trường, học ở sách vở, học lẫn nhau và học nhân dân”",
+    paragraph1: "Đối với Chủ tịch Hồ Chí Minh, học tập là một quá trình lâu dài và không giới hạn trong lớp học hay sách vở. Người đề cao việc học từ nhiều nguồn: từ nhà trường, sách vở, bạn bè và đặc biệt là từ thực tiễn cuộc sống, từ nhân dân. Tinh thần ấy được thể hiện trong quan điểm của Người về việc học tập suốt đời.",
+    paragraph2: "Lời dạy gợi mở một cách học chủ động và toàn diện: học kiến thức, học kinh nghiệm, học cách làm việc và học cách sống.",
+    paragraph3: "",
+    nowStudy: "Trong thời đại tri thức và chuyển đổi số, thanh niên càng có nhiều cơ hội để học tập. Điều quan trọng là biết chủ động tìm hiểu, biết lắng nghe, biết học hỏi từ thực tiễn và biến kiến thức thành năng lực phục vụ bản thân và cộng đồng."
+  },
+  {
+    title: "“Cần, kiệm, liêm, chính, chí công vô tư”",
+    paragraph1: "Trong tư tưởng đạo đức Hồ Chí Minh, cần, kiệm, liêm, chính, chí công vô tư là những phẩm chất quan trọng của người cách mạng.",
+    paragraph2: "“Cần” là siêng năng, chăm chỉ; “kiệm” là tiết kiệm, không hoang phí; “liêm” là trong sạch, không tham lam; “chính” là ngay thẳng, đứng đắn. “Chí công vô tư” là đặt lợi ích chung lên trên lợi ích riêng.",
+    paragraph3: "Những phẩm chất này được Người nhấn mạnh trong quá trình giáo dục, rèn luyện đạo đức cho cán bộ, đảng viên và nhân dân.",
+    nowStudy: "Đối với người trẻ, học theo Bác bắt đầu từ những việc rất gần gũi: học tập nghiêm túc, làm việc có trách nhiệm, sử dụng thời gian và nguồn lực hợp lý, sống trung thực và biết đặt lợi ích chung bên cạnh lợi ích cá nhân."
+  },
+  {
+    title: "“Không có gì quý hơn độc lập, tự do”",
+    paragraph1: "Câu nói “Không có gì quý hơn độc lập, tự do” được Chủ tịch Hồ Chí Minh nêu trong lời kêu gọi ngày 17/7/1966, trong bối cảnh cuộc kháng chiến chống Mỹ đang diễn ra quyết liệt. Đây là sự khẳng định mạnh mẽ về giá trị của độc lập dân tộc và tự do.",
+    paragraph2: "Đối với Chủ tịch Hồ Chí Minh, độc lập dân tộc phải gắn với cuộc sống tự do, hạnh phúc của nhân dân. Vì vậy, độc lập không chỉ là mục tiêu của cuộc đấu tranh giành và bảo vệ Tổ quốc mà còn là điều kiện để nhân dân được sống trong tự do và hạnh phúc.",
+    paragraph3: "",
+    nowStudy: "Thế hệ trẻ được sống trong hòa bình và độc lập càng cần trân trọng những thành quả mà các thế hệ đi trước đã hy sinh để giành được; từ đó có ý thức học tập, rèn luyện và góp sức xây dựng quê hương, đất nước."
+  }
+];
 // Hàm render dữ liệu ra ngoài DOM
 function renderWorks() {
-  const containerNode = document.querySelector('.content-container');
+  // Trỏ đúng vào thẻ content-container bên trong section
+  const containerNode = document.querySelector('#Loi-day-container .content-container');
   
   if (!containerNode) return;
 
-  // Giữ lại phần mô tả chung ban đầu (div.descript)
-  const headerDescriptHTML = `
-    <div class="descript">
-      <p> Trong suốt cuộc đời hoạt động cách mạng, Chủ tịch Hồ Chí Minh đã để lại một di sản tư tưởng, văn hóa và văn học phong phú. Các tác phẩm của Người được viết trong nhiều hoàn cảnh khác nhau, từ những năm tháng tìm đường cứu nước, chuẩn bị cho cách mạng đến thời kỳ lãnh đạo cuộc đấu tranh giành và giữ vững độc lập dân tộc.</p>
-      <p> Qua từng tác phẩm, tư tưởng của Người được thể hiện một cách sâu sắc nhưng gần gũi, hướng đến những vấn đề lớn của dân tộc, của nhân dân và của con người. Đó cũng là những tư liệu quan trọng giúp các thế hệ hôm nay hiểu hơn về tư tưởng, đạo đức, phong cách và con đường cách mạng mà Chủ tịch Hồ Chí Minh đã lựa chọn.</p>
-    </div>
-  `;
-
-  // Sử dụng map() để lặp qua từng tác phẩm và nối các thẻ HTML lại
   const worksHTML = work.map(item => `
     <div class="work">
-      <div class="title">
-        ${item.name}
-      </div>
+      <div class="title">${item.name}</div>
       <div class="container">
         <div class="content">
-          <div class="descript">
-            ${item.descript}
-          </div>
+          <div class="descript">${item.descript}</div>
           <div class="main-content">
             <p class="emphasize">Nội dung chính:</p>
-            <p class="paragraph">
-              ${item.content}
-            </p>
+            <p class="paragraph">${item.content}</p>
           </div>
           <div class="value">
             <p class="emphasize">Giá trị:</p>
-            <p class="paragraph">
-              ${item.value}
-            </p>
+            <p class="paragraph">${item.value}</p>
           </div>
         </div>
         <img src="../assets/images/${item.image}" alt="${item.name}">
@@ -80,9 +101,39 @@ function renderWorks() {
     </div>
   `).join('');
 
-  // Đặt lại nội dung HTML cho content-container
-  containerNode.innerHTML = headerDescriptHTML + worksHTML;
+  // Gán trực tiếp vào .content-container (Không đụng chạm gì đến .banner, .descript hay .exp)
+  containerNode.innerHTML = worksHTML;
 }
 
-// Gọi hàm khi trang tải xong
-document.addEventListener('DOMContentLoaded', renderWorks);
+function renderStudies() {
+  // Trỏ đúng vào thẻ content-container bên trong section
+  const containerNode = document.querySelector('#study-container .content-container');
+  
+  if (!containerNode) return;
+
+  const worksHTML = study.map(item => `
+    <div class="study">
+      <div class="title">${item.title}</div>
+      <div class="content">
+        ${item.paragraph1 ? `<p>${item.paragraph1}</p>` : ''}
+        ${item.paragraph2 ? `<p>${item.paragraph2}</p>` : ''}
+        ${item.paragraph3 ? `<p>${item.paragraph3}</p>` : ''}
+        <div class="study">
+          <div class="emphasize">Bài học hôm nay:</div>
+          <div class="study-text">${item.nowStudy}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Gán trực tiếp vào .content-container (Không đụng chạm gì đến .banner, .descript hay .exp)
+  containerNode.innerHTML = worksHTML;
+}
+
+
+// Gọi cả 2 hàm khi trang đã tải xong DOM
+document.addEventListener('DOMContentLoaded', () => {
+  renderWorks();
+  renderStudies();
+});
+
