@@ -571,6 +571,14 @@ main {
         gap: 0px;
         .part{
           padding: 12px;
+          .title{
+            font-size: 16px;
+          }
+          .content{
+            p{
+              font-size: 14px;
+            }
+          }
         }
       }
     }
