@@ -20,12 +20,12 @@ main {
       max-width: 900px;
       margin: 30px auto;
       padding: 24px 28px;
-      background-color: var(--blue-primary);
+      background-color: var(--blue-primary, #0056b3);
       border: 1px solid #e8dec8;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 
-      > p {
+      >p {
         font-size: 16px;
         line-height: 1.8;
         color: #ffffff;
@@ -108,16 +108,11 @@ main {
           }
         }
 
-        /* Khối nội dung chữ bên trong .work */
         .content {
           flex: 1;
           display: flex;
           flex-direction: column;
           gap: 15px;
-          border: none;
-          padding: 0;
-          box-shadow: none;
-          background: transparent;
 
           .descript {
             font-size: 15px;
@@ -131,7 +126,7 @@ main {
             margin: 0;
             box-shadow: none;
 
-            > p {
+            >p {
               color: inherit;
               padding-left: 0;
 
@@ -158,8 +153,9 @@ main {
         }
       }
 
-      /* Khối thẻ bài học cha (.study bên ngoài) */
-      .study {
+      /* Gộp cấu trúc dùng chung của .study và .sample */
+      .study,
+      .sample {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
         border-top: 4px solid var(--blue-primary, #007bff);
@@ -187,10 +183,6 @@ main {
           display: flex;
           flex-direction: column;
           gap: 12px;
-          border: none;
-          padding: 0;
-          background: transparent;
-          box-shadow: none;
 
           p {
             margin: 0;
@@ -200,8 +192,9 @@ main {
             text-align: justify;
           }
 
-          /* === NỔI BẬT: Khối .study con ("Bài học hôm nay") lồng bên trong .content === */
-          > .study {
+          /* Khối con lồng bên trong .content (Dùng chung cho .study, .sample) */
+          >.study,
+          >.sample {
             margin-top: 16px;
             padding: 20px 24px;
             background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
@@ -209,8 +202,6 @@ main {
             border-left: 6px solid var(--blue-primary, #0056b3);
             border-radius: 4px 12px 12px 4px;
             box-shadow: 0 4px 14px rgba(0, 86, 179, 0.08);
-            display: flex;
-            flex-direction: column;
             gap: 10px;
 
             .emphasize {
@@ -241,7 +232,7 @@ main {
       }
 
       /* Thẻ nội dung chung */
-      > .content {
+      >.content {
         border: 1px solid #e2e8f0;
         border-top: 4px solid var(--blue-primary, #007bff);
         border-radius: 12px;
@@ -328,104 +319,258 @@ main {
       }
     }
   }
+
+  /* Khối doan-container được tối ưu kế thừa */
+  #doan-container {
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+
+    .content-container {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      /* Khoảng cách giữa các .part */
+
+      /* Style cho từng .part bên trong content-container */
+      .part {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+        /* Tiêu đề chính (${module.mainTitle}) */
+        >.title {
+          width: 100%;
+          font-size: 20px;
+          font-weight: 700;
+          padding: 16px 20px;
+          color: #ffffff;
+          border-radius: 10px;
+          text-align: center;
+          line-height: 1.4;
+          box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin: 0;
+        }
+
+        /* Khung mô tả (${module.mainDescript}) */
+        >.descript {
+          background-color: #f8fafc;
+          border: 1px solid #cbd5e1;
+          border-left: 5px solid var(--blue-primary, #0056b3);
+          border-radius: 8px;
+          padding: 18px 22px;
+          margin: 0;
+
+          >p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #334155;
+            margin-bottom: 12px;
+            text-align: justify;
+            position: relative;
+            padding-left: 18px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &::before {
+              content: "•";
+              position: absolute;
+              left: 0;
+              top: -1px;
+              color: #b71c1c;
+              font-weight: bold;
+              font-size: 16px;
+            }
+          }
+        }
+
+        /* Khối từng đoạn nội dung (${sec}) */
+        .doan {
+          background-color: #ffffff;
+          border: 1px solid #f1f5f9;
+          border-top: 3px solid var(--blue-primary, #007bff);
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+
+          /* Tiêu đề đoạn (${sec.title}) */
+          >.title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #b71c1c;
+            background: transparent;
+            box-shadow: none;
+            padding: 0 0 8px 0;
+            border-bottom: 2px solid #f1f5f9;
+            border-radius: 0;
+            text-align: left;
+            text-transform: none;
+            letter-spacing: normal;
+          }
+
+          /* Nội dung đoạn (${sec.paragraphs} & ${sec.quote}) */
+          .content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            p {
+              margin: 0;
+              font-size: 15px;
+              line-height: 1.75;
+              color: #334155;
+              text-align: justify;
+            }
+
+            /* Khối quote nổi bật */
+            .study-text {
+              margin-top: 8px;
+              padding: 16px 20px;
+              background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+              border: 1px solid #bae6fd;
+              border-left: 5px solid var(--blue-primary, #0056b3);
+              border-radius: 4px 10px 10px 4px;
+              font-size: 15px;
+              line-height: 1.7;
+              color: #0f172a;
+              font-weight: 500;
+
+              &::before {
+                content: "💡 ";
+                font-size: 16px;
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 /* RESPONSIVE (TABLET & MOBILE) */
 @media (max-width: 780px) {
-  main section {
-    .descript {
-      margin: 15px;
-      padding: 18px 20px;
+  main {
+    section {
+      .descript {
+        margin: 15px;
+        padding: 18px 20px;
 
-      > p {
-        font-size: 15px;
-        line-height: 1.7;
-      }
-    }
-
-    .content-container {
-      width: 95%;
-
-      .title {
-        font-size: 16px;
-        padding: 12px 16px;
-        border-radius: 8px;
-      }
-
-      .work {
-        padding: 16px;
-
-        .title {
-          font-size: 18px;
-          text-align: center;
-        }
-
-        .container {
-          flex-direction: column-reverse;
-          align-items: center;
-
-          img {
-            width: 100%;
-            max-width: 280px;
-            height: auto;
-            margin-bottom: 10px;
-          }
+        >p {
+          font-size: 15px;
+          line-height: 1.7;
         }
       }
 
-      .study {
-        padding: 18px 16px;
+      .content-container {
+        width: 95%;
 
         .title {
           font-size: 16px;
+          padding: 12px 16px;
+          border-radius: 8px;
         }
 
-        .content {
-          p {
-            font-size: 14px;
+        .work {
+          padding: 16px;
+
+          .title {
+            font-size: 18px;
+            text-align: center;
           }
 
-          /* Responsive cho .study con */
-          > .study {
-            padding: 16px 18px;
+          .container {
+            flex-direction: column-reverse;
+            align-items: center;
 
-            .emphasize {
+            img {
+              width: 100%;
+              max-width: 280px;
+              height: auto;
+              margin-bottom: 10px;
+            }
+          }
+        }
+
+        .study,
+        .sample {
+          padding: 18px 16px;
+
+          .title {
+            font-size: 16px;
+          }
+
+          .content {
+            p {
               font-size: 14px;
             }
 
-            .study-text {
-              font-size: 14px;
+            >.study,
+            >.sample {
+              padding: 16px 18px;
+
+              .emphasize,
+              .study-text {
+                font-size: 14px;
+              }
             }
+          }
+        }
+
+        >.content {
+          padding: 16px;
+          gap: 12px;
+
+          p {
+            font-size: 14px;
           }
         }
       }
 
-      > .content {
-        padding: 16px;
-        gap: 12px;
+      .exp {
+        margin: 20px 15px;
+        padding: 20px;
 
-        p {
-          font-size: 14px;
+        .title {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+
+        .content {
+          font-size: 15px;
+          line-height: 1.7;
+
+          .study-emphasize {
+            font-size: 14px;
+            padding: 12px 14px;
+          }
         }
       }
     }
 
-    .exp {
-      margin: 20px 15px;
-      padding: 20px;
-
-      .title {
-        font-size: 18px;
-        margin-bottom: 15px;
-      }
-
-      .content {
-        font-size: 15px;
-        line-height: 1.7;
-
-        .study-emphasize {
-          font-size: 14px;
-          padding: 12px 14px;
+    #doan-container{
+      margin: 0;
+      .content-container{
+        width: 100%;
+        gap: 0px;
+        .part{
+          padding: 12px;
         }
       }
     }

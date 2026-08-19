@@ -3,7 +3,6 @@ main {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding: 20px 0;
 
     .container {
         width: 80%;
@@ -49,8 +48,13 @@ main {
             flex-direction: row;
             gap: 16px;
 
+            .row{
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            }
             .content {
-                width: calc(100% / 3);
+                
                 border: 1px solid #e0e6ed;
                 padding: 16px;
                 border-radius: 10px;
@@ -101,7 +105,9 @@ main {
 
             .content-container {
                 flex-direction: column;
-
+                .row{
+                    flex-direction: column;
+                }
                 .content {
                     width: 100%;
 
