@@ -147,6 +147,7 @@ footer {
         justify-content: center;
         align-items: center;
 
+        margin: 5px 10px;
         img {
             width: 64px;
         }
@@ -156,6 +157,9 @@ footer {
             color: white;
             margin: 10px;
         }
+    }
+    #GT{
+        border-right: 1px solid white;
     }
 }
 
