@@ -1,0 +1,209 @@
+.content-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+/* Thẻ Card Story */
+.story {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 22px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.story:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: #f59e0b;
+}
+
+/* Tiêu đề Gradient - Tăng size chữ */
+.story-title {
+  font-size: 1.25rem; /* Tăng từ 1.1rem lên 1.25rem */
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 12px;
+  width: 100%;
+  
+  background: linear-gradient(135deg, #991b1b 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.story-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #d97706, transparent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.story:hover .story-title::after {
+  width: 70px;
+}
+
+/* Nút mở Popup - Tăng size chữ & padding */
+.story .open-popup-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: #d97706;
+  border: 1.5px solid #d97706;
+  padding: 8px 18px; /* Tăng padding nút */
+  border-radius: 20px;
+  font-size: 0.95rem; /* Tăng từ 0.85rem lên 0.95rem */
+  font-weight: 600;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+
+/* ==========================================
+   3. POPUP MODAL (NỘI DUNG VÀ BÀI HỌC)
+   ========================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px; /* Tăng size nút đóng X */
+  font-weight: bold;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #991b1b;
+}
+
+/* Tiêu đề trong Popup Modal */
+#modal-title {
+  color: #991b1b;
+  font-size: 1.6rem; /* Tăng từ 1.4rem lên 1.6rem */
+  font-weight: 700;
+  margin-bottom: 22px;
+  padding-right: 35px;
+  border-bottom: 2px solid #fef3c7;
+  padding-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* Nội dung câu chuyện trong Popup */
+#modal-body p {
+  font-size: 1.1rem; /* Tăng kích thước chữ đọc nội dung */
+  margin-bottom: 16px;
+  line-height: 1.8;
+  color: #334155;
+  text-align: justify;
+}
+
+/* Khung bài học kinh nghiệm */
+.story-lesson-box {
+  margin-top: 24px;
+  padding: 18px 20px;
+  background-color: #fef3c7;
+  border-left: 5px solid #d97706;
+  border-radius: 8px;
+}
+
+.story-lesson-box strong {
+  display: block;
+  color: #92400e;
+  font-size: 1.1rem; /* Tăng tiêu đề phần bài học */
+  margin-bottom: 8px;
+}
+
+.story-lesson-box p {
+  margin-bottom: 0 !important;
+  color: #78350f;
+  font-style: italic;
+  font-size: 1.05rem !important; /* Tăng font nội dung bài học */
+  line-height: 1.7;
+}
+
+/* ==========================================
+   4. RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media screen and (max-width: 768px) {
+  #short-story-container {
+    margin: 15px auto;
+    padding: 0 15px;
+  }
+
+  .content-container {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .modal-content {
+    padding: 22px;
+  }
+
+  #modal-title {
+    font-size: 1.35rem;
+  }
+
+  #modal-body p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content-container {
+    grid-template-columns: 1fr;
+  }
+}
