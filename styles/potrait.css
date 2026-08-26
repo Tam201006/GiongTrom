@@ -1,586 +1,802 @@
+/* ========================================================
+   BẢNG MÀU & GHI CHÚ THIẾT KẾ (không dùng :root/var, chỉ để tham khảo)
+   - Xanh chính:   #0b5fad → #1a7fe0 (gradient)
+   - Đỏ nhấn:      #ad1f2e
+   - Nền trung tính: #f7f9fc / #ffffff
+   - Chữ:          #1e293b (đậm) / #475569 (phụ)
+   - Viền:         #e6ebf2
+   ======================================================== */
+
+/* ========================================================
+   1. LAYOUT CHÍNH & BANNER
+   ======================================================== */
 main {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
-  section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-
-    .banner img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Khung mô tả tổng quan */
-    .descript {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 24px 28px;
-      background-color: var(--blue-primary, #0056b3);
-      border: 1px solid #e8dec8;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-
-      >p {
-        font-size: 16px;
-        line-height: 1.8;
-        color: #ffffff;
-        margin-bottom: 16px;
-        text-align: justify;
-        position: relative;
-        padding-left: 20px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        &::before {
-          content: "•";
-          position: absolute;
-          left: 0;
-          top: 0;
-          color: #b71c1c;
-          font-weight: bold;
-          font-size: 18px;
-        }
-      }
-    }
-
-    /* Container chứa danh sách tác phẩm & bài học */
-    .content-container {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-
-      /* Tiêu đề chung dạng gradient */
-      .title {
-        font-size: 20px;
-        font-weight: 700;
-        padding: 16px 20px;
-        background: linear-gradient(135deg, var(--blue-primary, #0056b3), #007bff);
-        color: #ffffff;
-        border-radius: 12px;
-        text-align: center;
-        line-height: 1.4;
-        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      /* Thẻ tác phẩm (Work Card) */
-      .work {
-        max-width: 1000px;
-        margin: 10px auto;
-        padding: 25px;
-        background-color: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-        border: 1px solid #e0e0e0;
-
-        .title {
-          background: transparent;
-          box-shadow: none;
-          color: #b71c1c;
-          text-align: left;
-          padding: 0 0 10px 0;
-          margin-bottom: 20px;
-          border-bottom: 2px solid #f0f0f0;
-          border-radius: 0;
-        }
-
-        .container {
-          display: flex;
-          align-items: flex-start;
-          gap: 25px;
-
-          img {
-            width: 260px;
-            height: 360px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            flex-shrink: 0;
-          }
-        }
-
-        .content {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          gap: 15px;
-
-          .descript {
-            font-size: 15px;
-            font-style: italic;
-            color: #555555;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-            padding: 12px 15px;
-            border-left: 3px solid #b71c1c;
-            border-radius: 0 6px 6px 0;
-            margin: 0;
-            box-shadow: none;
-
-            >p {
-              color: inherit;
-              padding-left: 0;
-
-              &::before {
-                display: none;
-              }
-            }
-          }
-
-          .emphasize {
-            font-weight: 700;
-            color: #222222;
-            margin-bottom: 5px;
-            font-size: 15px;
-          }
-
-          .paragraph {
-            font-size: 15px;
-            color: #333333;
-            line-height: 1.7;
-            margin: 0;
-            text-align: justify;
-          }
-        }
-      }
-
-      /* Gộp cấu trúc dùng chung của .study và .sample */
-      .study,
-      .sample {
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-top: 4px solid var(--blue-primary, #007bff);
-        border-radius: 12px;
-        padding: 24px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-
-        .title {
-          font-size: 18px;
-          font-weight: 700;
-          color: #b71c1c;
-          background: transparent;
-          box-shadow: none;
-          padding: 0 0 10px 0;
-          border-bottom: 2px solid #f0f0f0;
-          border-radius: 0;
-          text-align: left;
-          text-transform: none;
-        }
-
-        .content {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-
-          p {
-            margin: 0;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #334155;
-            text-align: justify;
-          }
-
-          /* Khối con lồng bên trong .content (Dùng chung cho .study, .sample) */
-          >.study,
-          >.sample {
-            margin-top: 16px;
-            padding: 20px 24px;
-            background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
-            border: 1px solid #bae6fd;
-            border-left: 6px solid var(--blue-primary, #0056b3);
-            border-radius: 4px 12px 12px 4px;
-            box-shadow: 0 4px 14px rgba(0, 86, 179, 0.08);
-            gap: 10px;
-
-            .emphasize {
-              font-size: 16px;
-              font-weight: 800;
-              color: var(--blue-primary, #0056b3);
-              text-transform: uppercase;
-              letter-spacing: 0.8px;
-              display: flex;
-              align-items: center;
-              gap: 8px;
-
-              &::before {
-                content: "💡";
-                font-size: 18px;
-              }
-            }
-
-            .study-text {
-              font-size: 15px;
-              line-height: 1.7;
-              color: #0f172a;
-              font-weight: 500;
-              text-align: justify;
-            }
-          }
-        }
-      }
-
-      /* Thẻ nội dung chung */
-      >.content {
-        border: 1px solid #e2e8f0;
-        border-top: 4px solid var(--blue-primary, #007bff);
-        border-radius: 12px;
-        padding: 24px;
-        background-color: #ffffff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-
-        p {
-          margin: 0;
-          font-size: 15px;
-          line-height: 1.7;
-          color: #334155;
-          text-align: justify;
-        }
-      }
-    }
-
-    /* Khối trải nghiệm / Đúc kết bài học (.exp) */
-    .exp {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 30px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      border-left: 5px solid #b71c1c;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      }
-
-      .title {
-        font-size: 22px;
-        font-weight: 700;
-        color: #b71c1c;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 20px;
-        padding-bottom: 12px;
-        border-bottom: 2px solid #f0f0f0;
-        position: relative;
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 60px;
-          height: 2px;
-          background-color: #b71c1c;
-        }
-      }
-
-      .content {
-        font-size: 16px;
-        line-height: 1.8;
-        color: #333333;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-
-        p {
-          margin: 0;
-          text-align: justify;
-        }
-
-        .study-emphasize {
-          font-size: 16px;
-          font-weight: 700;
-          color: #0056b3;
-          background-color: #f0f7ff;
-          border-left: 4px solid #007bff;
-          padding: 14px 18px;
-          border-radius: 0 8px 8px 0;
-          font-style: italic;
-          text-align: center;
-          margin-top: 8px;
-        }
-      }
-    }
-  }
-
-  /* Khối doan-container được tối ưu kế thừa */
-  #doan-container {
-    width: 100%;
-    margin: 30px auto;
-    padding: 0 15px;
-    box-sizing: border-box;
-
-    .content-container {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      /* Khoảng cách giữa các .part */
-
-      /* Style cho từng .part bên trong content-container */
-      .part {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-
-        /* Tiêu đề chính (${module.mainTitle}) */
-        >.title {
-          width: 100%;
-          font-size: 20px;
-          font-weight: 700;
-          padding: 16px 20px;
-          color: #ffffff;
-          border-radius: 10px;
-          text-align: center;
-          line-height: 1.4;
-          box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          margin: 0;
-        }
-
-        /* Khung mô tả (${module.mainDescript}) */
-        >.descript {
-          background-color: #f8fafc;
-          border: 1px solid #cbd5e1;
-          border-left: 5px solid var(--blue-primary, #0056b3);
-          border-radius: 8px;
-          padding: 18px 22px;
-          margin: 0;
-
-          >p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #334155;
-            margin-bottom: 12px;
-            text-align: justify;
-            position: relative;
-            padding-left: 18px;
-
-            &:last-child {
-              margin-bottom: 0;
-            }
-
-            &::before {
-              content: "•";
-              position: absolute;
-              left: 0;
-              top: -1px;
-              color: #b71c1c;
-              font-weight: bold;
-              font-size: 16px;
-            }
-          }
-        }
-
-        /* Khối từng đoạn nội dung (${sec}) */
-        .doan {
-          background-color: #ffffff;
-          border: 1px solid #f1f5f9;
-          border-top: 3px solid var(--blue-primary, #007bff);
-          border-radius: 10px;
-          padding: 20px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-
-          /* Tiêu đề đoạn (${sec.title}) */
-          >.title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #b71c1c;
-            background: transparent;
-            box-shadow: none;
-            padding: 0 0 8px 0;
-            border-bottom: 2px solid #f1f5f9;
-            border-radius: 0;
-            text-align: left;
-            text-transform: none;
-            letter-spacing: normal;
-          }
-
-          /* Nội dung đoạn (${sec.paragraphs} & ${sec.quote}) */
-          .content {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-
-            p {
-              margin: 0;
-              font-size: 15px;
-              line-height: 1.75;
-              color: #334155;
-              text-align: justify;
-            }
-
-            /* Khối quote nổi bật */
-            .study-text {
-              margin-top: 8px;
-              padding: 16px 20px;
-              background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
-              border: 1px solid #bae6fd;
-              border-left: 5px solid var(--blue-primary, #0056b3);
-              border-radius: 4px 10px 10px 4px;
-              font-size: 15px;
-              line-height: 1.7;
-              color: #0f172a;
-              font-weight: 500;
-
-              &::before {
-                content: "💡 ";
-                font-size: 16px;
-                margin-right: 4px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+  background-color: #f4f6fb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* RESPONSIVE (TABLET & MOBILE) */
+main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+main section .banner {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+}
+
+main section .banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+main section .banner:hover img {
+  transform: scale(1.02);
+}
+
+/* ========================================================
+   2. KHUNG MÔ TẢ TỔNG QUAN (.descript)
+   ======================================================== */
+main section > .descript {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 26px 30px;
+  background: linear-gradient(135deg, #0a4a8a, #0b5fad);
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(11, 95, 173, 0.25);
+}
+
+main section > .descript > p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-align: justify;
+  position: relative;
+  padding-left: 22px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+main section > .descript > p:last-child {
+  margin-bottom: 0;
+}
+
+main section > .descript > p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffd166;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* ========================================================
+   3. CONTENT CONTAINER & CÁC THẺ CON
+   ======================================================== */
+main section .content-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Tiêu đề chung */
+main section .content-container .title {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #0b5fad, #1a7fe0);
+  color: #ffffff;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.4;
+  box-shadow: 0 6px 16px rgba(26, 127, 224, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* Thẻ tác phẩm (.work) */
+main section .content-container .work {
+  max-width: 1000px;
+  margin: 10px auto;
+  padding: 26px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+  border: 1px solid #e6ebf2;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+main section .content-container .work:hover {
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+main section .content-container .work .title {
+  background: transparent;
+  box-shadow: none;
+  color: #ad1f2e;
+  text-align: left;
+  padding: 0 0 12px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f2f6;
+  border-radius: 0;
+  letter-spacing: 0.3px;
+}
+
+main section .content-container .work .container {
+  display: flex;
+  align-items: flex-start;
+  gap: 26px;
+}
+
+main section .content-container .work .container img {
+  width: 260px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+main section .content-container .work .container img:hover {
+  transform: scale(1.02);
+}
+
+main section .content-container .work .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+main section .content-container .work .content .descript {
+  font-size: 15px;
+  font-style: italic;
+  color: #52606d;
+  line-height: 1.6;
+  background-color: #f8fafc;
+  padding: 14px 16px;
+  border-left: 3px solid #ad1f2e;
+  border-radius: 0 8px 8px 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+main section .content-container .work .content .descript > p {
+  color: inherit;
+  padding-left: 0;
+}
+
+main section .content-container .work .content .descript > p::before {
+  display: none;
+}
+
+main section .content-container .work .content .emphasize {
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+main section .content-container .work .content .paragraph {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.75;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Khối .study và .sample */
+main section .content-container .study,
+main section .content-container .sample {
+  background-color: #ffffff;
+  border: 1px solid #e6ebf2;
+  border-top: 4px solid #1a7fe0;
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+main section .content-container .study:hover,
+main section .content-container .sample:hover {
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
+}
+
+main section .content-container .study .title,
+main section .content-container .sample .title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ad1f2e;
+  background: transparent;
+  box-shadow: none;
+  padding: 0 0 12px 0;
+  border-bottom: 2px solid #f0f2f6;
+  border-radius: 0;
+  text-align: left;
+  text-transform: none;
+}
+
+main section .content-container .study .content,
+main section .content-container .sample .content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+main section .content-container .study .content p,
+main section .content-container .sample .content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+  text-align: justify;
+}
+
+main section .content-container .study .content > .study,
+main section .content-container .study .content > .sample,
+main section .content-container .sample .content > .study,
+main section .content-container .sample .content > .sample {
+  margin-top: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #eef6ff 0%, #dcf0ff 100%);
+  border: 1px solid #b6e0fe;
+  border-left: 6px solid #0b5fad;
+  border-radius: 4px 14px 14px 4px;
+  box-shadow: 0 6px 16px rgba(11, 95, 173, 0.1);
+  gap: 10px;
+}
+
+main section .content-container .study .content > .study .emphasize,
+main section .content-container .study .content > .sample .emphasize,
+main section .content-container .sample .content > .study .emphasize,
+main section .content-container .sample .content > .sample .emphasize {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0b5fad;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+main section .content-container .study .content > .study .emphasize::before,
+main section .content-container .study .content > .sample .emphasize::before,
+main section .content-container .sample .content > .study .emphasize::before,
+main section .content-container .sample .content > .sample .emphasize::before {
+  content: "💡";
+  font-size: 18px;
+}
+
+main section .content-container .study .content > .study .study-text,
+main section .content-container .study .content > .sample .study-text,
+main section .content-container .sample .content > .study .study-text,
+main section .content-container .sample .content > .sample .study-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #0f172a;
+  font-weight: 500;
+  text-align: justify;
+}
+
+/* Thẻ nội dung chung */
+main section .content-container > .content {
+  border: 1px solid #e6ebf2;
+  border-top: 4px solid #1a7fe0;
+  border-radius: 14px;
+  padding: 26px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+main section .content-container > .content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+  text-align: justify;
+}
+
+/* Khối trải nghiệm (.exp) */
+main section .exp {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.09);
+  border-left: 5px solid #ad1f2e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main section .exp:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+}
+
+main section .exp .title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ad1f2e;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f2f6;
+  position: relative;
+}
+
+main section .exp .title::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #ad1f2e;
+  border-radius: 3px;
+}
+
+main section .exp .content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+main section .exp .content p {
+  margin: 0;
+  text-align: justify;
+}
+
+main section .exp .content .study-emphasize {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0b5fad;
+  background-color: #eef6ff;
+  border-left: 4px solid #1a7fe0;
+  padding: 16px 20px;
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ========================================================
+   4. TIỂU SỬ (#tieu-su) & ĐOẠN CONTAINER (#doan-container)
+   ======================================================== */
+main #tieu-su {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #1e293b;
+}
+
+main #tieu-su > .title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0b5fad, #1a7fe0);
+  padding: 22px 26px;
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(11, 95, 173, 0.22);
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+  margin-bottom: 26px;
+}
+
+main #tieu-su .descript {
+  background: #ffffff;
+  border: 1px solid #e6ebf2;
+  border-left: 5px solid #ad1f2e;
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin-bottom: 36px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+main #tieu-su .descript p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+  text-align: justify;
+}
+
+main #tieu-su .body {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+main #tieu-su .body .part {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e6ebf2;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  margin-top: 14px;
+}
+
+main #tieu-su .body .part::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, #0b5fad, #1a7fe0);
+  transition: width 0.3s ease;
+}
+
+main #tieu-su .body .part:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(11, 95, 173, 0.14);
+  border-color: rgba(26, 127, 224, 0.35);
+}
+
+main #tieu-su .body .part:hover::before {
+  width: 8px;
+}
+
+main #tieu-su .body .part > .title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0b5fad;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+main #tieu-su .body .part > .title::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #ad1f2e;
+  border-radius: 3px;
+}
+
+main #tieu-su .body .part > .descript {
+  background-color: #f7f9fc;
+  border: 1px solid #e6ebf2;
+  border-left: 4px solid #0b5fad;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+main #tieu-su .body .part > .descript p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+main #tieu-su .body .part .text p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #1e293b;
+  margin: 0 0 10px 0;
+  text-align: justify;
+}
+
+main #tieu-su .body .part .text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Khối #doan-container */
+main #doan-container {
+  width: 100%;
+  margin: 30px auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+main #doan-container .content-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+}
+
+main #doan-container .content-container .part {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background-color: #ffffff;
+  border: 1px solid #e6ebf2;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+main #doan-container .content-container .part:hover {
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+}
+
+main #doan-container .content-container .part > .title {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 20px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0b5fad, #1a7fe0);
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.4;
+  box-shadow: 0 6px 16px rgba(26, 127, 224, 0.22);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin: 0;
+}
+
+main #doan-container .content-container .part > .descript {
+  background-color: #f7f9fc;
+  border: 1px solid #dbe3ee;
+  border-left: 5px solid #0b5fad;
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 0;
+}
+
+main #doan-container .content-container .part > .descript > p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 12px;
+  text-align: justify;
+  position: relative;
+  padding-left: 20px;
+}
+
+main #doan-container .content-container .part > .descript > p:last-child {
+  margin-bottom: 0;
+}
+
+main #doan-container .content-container .part > .descript > p::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: #ad1f2e;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+main #doan-container .content-container .part .doan {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-top: 3px solid #1a7fe0;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: box-shadow 0.3s ease;
+}
+
+main #doan-container .content-container .part .doan:hover {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+main #doan-container .content-container .part .doan > .title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ad1f2e;
+  background: transparent;
+  box-shadow: none;
+  padding: 0 0 8px 0;
+  border-bottom: 2px solid #f1f5f9;
+  border-radius: 0;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+main #doan-container .content-container .part .doan .content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+main #doan-container .content-container .part .doan .content p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #334155;
+  text-align: justify;
+}
+
+main #doan-container .content-container .part .doan .content .study-text {
+  margin-top: 8px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #eef6ff 0%, #dcf0ff 100%);
+  border: 1px solid #b6e0fe;
+  border-left: 5px solid #0b5fad;
+  border-radius: 4px 12px 12px 4px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+main #doan-container .content-container .part .doan .content .study-text::before {
+  content: "💡 ";
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+/* ========================================================
+   5. RESPONSIVE (MOBILE & TABLET)
+   ======================================================== */
 @media (max-width: 780px) {
-  main {
-    section {
-      .descript {
-        margin: 15px;
-        padding: 18px 20px;
+  main section > .descript {
+    margin: 15px;
+    padding: 18px 20px;
+    border-radius: 12px;
+  }
 
-        >p {
-          font-size: 15px;
-          line-height: 1.7;
-        }
-      }
+  main section > .descript > p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
 
-      .content-container {
-        width: 95%;
+  main section .content-container {
+    width: 95%;
+    gap: 20px;
+  }
 
-        .title {
-          font-size: 16px;
-          padding: 12px 16px;
-          border-radius: 8px;
-        }
+  main section .content-container .title {
+    font-size: 16px;
+    padding: 12px 16px;
+    border-radius: 10px;
+  }
 
-        .work {
-          padding: 16px;
+  main section .content-container .work {
+    padding: 18px;
+  }
 
-          .title {
-            font-size: 18px;
-            text-align: center;
-          }
+  main section .content-container .work .title {
+    font-size: 18px;
+    text-align: center;
+  }
 
-          .container {
-            flex-direction: column-reverse;
-            align-items: center;
+  main section .content-container .work .container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 
-            img {
-              width: 100%;
-              max-width: 280px;
-              height: auto;
-              margin-bottom: 10px;
-            }
-          }
-        }
+  main section .content-container .work .container img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 10px;
+  }
 
-        .study,
-        .sample {
-          padding: 18px 16px;
+  main section .content-container .study,
+  main section .content-container .sample {
+    padding: 18px 16px;
+  }
 
-          .title {
-            font-size: 16px;
-          }
+  main section .content-container .study .title,
+  main section .content-container .sample .title {
+    font-size: 16px;
+  }
 
-          .content {
-            p {
-              font-size: 14px;
-            }
+  main section .content-container .study .content p,
+  main section .content-container .sample .content p {
+    font-size: 14px;
+  }
 
-            >.study,
-            >.sample {
-              padding: 16px 18px;
+  main section .content-container .study .content > .study,
+  main section .content-container .study .content > .sample,
+  main section .content-container .sample .content > .study,
+  main section .content-container .sample .content > .sample {
+    padding: 16px 18px;
+  }
 
-              .emphasize,
-              .study-text {
-                font-size: 14px;
-              }
-            }
-          }
-        }
+  main section .content-container .study .content > .study .emphasize,
+  main section .content-container .study .content > .study .study-text,
+  main section .content-container .study .content > .sample .emphasize,
+  main section .content-container .study .content > .sample .study-text,
+  main section .content-container .sample .content > .study .emphasize,
+  main section .content-container .sample .content > .study .study-text,
+  main section .content-container .sample .content > .sample .emphasize,
+  main section .content-container .sample .content > .sample .study-text {
+    font-size: 14px;
+  }
 
-        >.content {
-          padding: 16px;
-          gap: 12px;
+  main section .content-container > .content {
+    padding: 16px;
+    gap: 12px;
+  }
 
-          p {
-            font-size: 14px;
-          }
-        }
-      }
+  main section .content-container > .content p {
+    font-size: 14px;
+  }
 
-      .exp {
-        margin: 20px 15px;
-        padding: 20px;
+  main section .exp {
+    margin: 20px 15px;
+    padding: 20px;
+  }
 
-        .title {
-          font-size: 18px;
-          margin-bottom: 15px;
-        }
+  main section .exp .title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
 
-        .content {
-          font-size: 15px;
-          line-height: 1.7;
+  main section .exp .content {
+    font-size: 15px;
+    line-height: 1.7;
+  }
 
-          .study-emphasize {
-            font-size: 14px;
-            padding: 12px 14px;
-          }
-        }
-      }
-    }
+  main section .exp .content .study-emphasize {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
 
-    #doan-container{
-      margin: 0;
-      .content-container{
-        width: 100%;
-        gap: 0px;
-        .part{
-          padding: 12px;
-          .title{
-            font-size: 16px;
-          }
-          .content{
-            p{
-              font-size: 14px;
-            }
-          }
-        }
-      }
-    }
+  main #tieu-su .body .part {
+    padding: 20px;
+  }
+
+  main #doan-container {
+    margin: 0;
+  }
+
+  main #doan-container .content-container {
+    width: 100%;
+    gap: 16px;
+  }
+
+  main #doan-container .content-container .part {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  main #doan-container .content-container .part > .title {
+    font-size: 16px;
+  }
+
+  main #doan-container .content-container .part .doan .content p {
+    font-size: 14px;
   }
 }

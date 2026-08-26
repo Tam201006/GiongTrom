@@ -1,4 +1,5 @@
 // Giả định bạn có mảng dữ liệu 'work'
+
 const work = [
   {
     "name": "BẢN ÁN CHẾ ĐỘ THỰC DÂN PHÁP (1925)",
