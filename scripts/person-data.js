@@ -49,10 +49,4 @@ const personPostsData = [
     description: "Thấm nhuần lời dạy của Bác Hồ: “Lương y phải như từ mẫu”, anh Trần Công Hội luôn nêu cao tinh thần trách nhiệm, tận tụy với công việc chuyên môn, không ngừng học hỏi nâng cao trình độ, đồng thời tích cực tham gia các hoạt động an sinh xã hội. Trên cương vị người đứng đầu Chi đoàn và Câu lạc bộ Thầy thuốc trẻ, anh đã chủ động tham mưu, tổ chức nhiều chương trình ý nghĩa như: khám bệnh, cấp phát thuốc miễn phí; tư vấn sức khỏe; tuyên truyền phòng chống dịch bệnh; chăm sóc sức khỏe cho người dân, đặc biệt là các gia đình chính sách và đối tượng khó khăn.",
     link: "https://www.facebook.com/share/p/1BzZq84LWm/ ",
 },
-{
-    name: "",
-    image: "../assets/post/.jpg",
-    description: "",
-    link: "",
-},
 ];
